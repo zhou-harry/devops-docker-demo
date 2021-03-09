@@ -17,7 +17,7 @@ docker login -u admin -p Harbor12345 harbor.harry.com:8015
 #推送docker镜像到Harbor镜像仓库
 docker push $IMAGE_NAME
 #删除docker容器
-cid=$(docker ps -q -f NAME="$CONTAINER_NAME")
+cid=$(docker ps -a -q -f NAME="$CONTAINER_NAME")
 #cid=$(docker ps | grep "$CONTAINER_NAME" | awk '{print $1}')
 if [ "$cid" != "" ]; then
    docker rm -f $cid
